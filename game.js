@@ -13,7 +13,7 @@ function nextSequence(){
 
 alert("testing");
 
-$("button").on("mousedown", function(){
+$("btn").on("mousedown", function(){
     console.log(this);
     nextSequence();
     $(this).animate({opacity: 0.25},1000);
