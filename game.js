@@ -72,13 +72,17 @@ $("body").on("keydown", function (){
         }
 });
 
-$(".btn").on("click", function(){
+$("body").on("click", function(){
     if (!gameStarted){
         resetGame();
         gameStarted = true;
         if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
         nextSequence();
-    } else {
+    }
+});
+
+$(".btn").on("click", function(){
+    if (gameStarted){
         if (userClickedPattern.length < gamePattern.length) {
             var userChosenColour = $(this).attr("id");
             playSound(userChosenColour);
@@ -87,7 +91,7 @@ $(".btn").on("click", function(){
             userClickedPattern.push(userChosenColour);
             console.log(userChosenColour);
             //nextSequence();
-        } else {
+            } else {
             checkAnswer(userClickedPattern.length -1);
             nextSequence();          
         }
