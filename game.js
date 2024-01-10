@@ -17,9 +17,13 @@ $(".btn").on("mousedown", function(){
     console.log($(this).attr("id"));
     var userChosenColour = $(this).attr("id"); // does this work?
     console.log(userChosenColour);
-    mySounds.src = "./sounds/" + userChosenColour + ".mp3";
-    mySounds.play();
+    playSound(userChosenColour);
     $(this).animate({opacity: 0.25},500, function(){$(this).delay(500).animate({opacity: 1}, 500);});
     userClickedPattern.push(userChosenColour);
     console.log(userChosenColour);
 });
+
+function playSound(name){
+    mySounds.src = "./sounds/" + name + ".mp3";
+    mySounds.play();
+}
