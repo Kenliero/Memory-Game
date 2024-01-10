@@ -19,6 +19,8 @@ function animatePress(currentColour){
 function nextSequence(){
     var randomNumber = Math.floor(Math.random() * 4);
     randomChosenColour = buttonColours[randomNumber];
+    //for (i)
+    $(this).animate({opacity: 0.25},100, function(){$(this).delay(100).animate({opacity: 1}, 100);});
     playSound(randomChosenColour);
     gamePattern.push(randomChosenColour);
     console.log(randomChosenColour);
