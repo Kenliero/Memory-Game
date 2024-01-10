@@ -14,12 +14,12 @@ function playSound(name){
 
 function animatePress(currentColour){
     $("#" + currentColour).addClass("pressed");
-    setTimeout(function(){$("#" + currentColour).removeClass("pressed"),100;})
+    setTimeout(function(){$("#" + currentColour).removeClass("pressed");},100);
 }
 
 function showPattern(){
     for (var i = 0; i < gamePattern.length;i++){
-        $("." + gamePattern[i]).delay(i * 100).animate({opacity: 0.25},200, function(){$(this).delay(100).animate({opacity: 1}, 200);});
+        $("." + gamePattern[i]).delay(i * 100).animate({opacity: 0.25}, 200).delay(100).animate({opacity: 1}, 200);        
      }
 }
 
