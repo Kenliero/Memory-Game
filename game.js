@@ -72,13 +72,14 @@ $(".btn").on("click", function(){
             var userChosenColour = $(this).attr("id");
             playSound(userChosenColour);
             animatePress(userChosenColour);
-            //$(this).animate({opacity: 0.25},200, function(){$(this).delay(500).animate({opacity: 1}, 200);});
+            console.log("player: " + userClickedPattern.length + " & Game: " + gamePattern.length);
             userClickedPattern.push(userChosenColour);
             console.log(userChosenColour);
             //nextSequence();
         } else {
             checkAnswer(userClickedPattern.length -1);
-            userClickedPattern.length = 0; // clear user clicked            
+            userClickedPattern.length = 0; // clear user clicked 
+            showPattern();           
         }
     }
 });
