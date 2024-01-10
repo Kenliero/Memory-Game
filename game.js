@@ -4,7 +4,7 @@ var gamePattern= [];
 var userClickedPattern = [];
 var level = 0;
 var gameStarted = false;
-var goNext = false;
+var success = true;
 
 function playSound(name){
     var mySounds = new Audio();
@@ -31,17 +31,17 @@ function showPattern() {
 }
 
 function checkAnswer(currentlevel){
-    var success = true;
+    success = true;
     for (var i = 0; i < gamePattern.length;i++) {
-        if (gamePattern[i] != userClickedPattern[i]) {success = false};
+        if (gamePattern[i] !== userClickedPattern[i]) {success = false};
+        console.log(success);
     }
     if (success === true) {
-       $("h1").text("SUCCESS!!!");
-       resetRound();
+        resetRound();
     } else {
         $("h1").addClass("smallText");
         $("h1").text("You made a mistake... Click to try Again");
-        resetGame();    
+        success = false;  
     }
 }
 
@@ -97,9 +97,14 @@ $(".btn").on("click", function(){
             userClickedPattern.push(userChosenColour);
             console.log(userChosenColour);
             }      
-        }
         if (userClickedPattern.length === gamePattern.length) {
-        checkAnswer(userClickedPattern.length -1);
-        nextSequence();
-        }    
+          checkAnswer(userClickedPattern.length -1);
+          if (success === true ) {
+            nextSequence()
+          } else {
+            resetGame();
+            gameStarted = false;
+          }
+        }   
+    }     
 });
