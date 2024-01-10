@@ -36,7 +36,6 @@ $("body").on("keydown", function (){
 
 $(".btn").on("mousedown", function(){
     var userChosenColour = $(this).attr("id"); // does this work?
-    console.log(userChosenColour);
     playSound(userChosenColour);
     animatePress(userChosenColour);
     //$(this).animate({opacity: 0.25},200, function(){$(this).delay(500).animate({opacity: 1}, 200);});
