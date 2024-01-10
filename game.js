@@ -23,6 +23,7 @@ function nextSequence(){
     gamePattern.push(randomChosenColour);
     console.log(randomChosenColour);
     level++;
+    $("h1").text("Level " + level);
 }
 
 $("body").on("keydown", function (){
@@ -31,7 +32,6 @@ $("body").on("keydown", function (){
             level = 0;
             nextSequence();
         }
-        $("h1").text("Level " + level);
 });
 
 $(".btn").on("mousedown", function(){
@@ -42,5 +42,5 @@ $(".btn").on("mousedown", function(){
     //$(this).animate({opacity: 0.25},200, function(){$(this).delay(500).animate({opacity: 1}, 200);});
     userClickedPattern.push(userChosenColour);
     console.log(userChosenColour);
+    //nextSequence();
 });
-
