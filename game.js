@@ -15,8 +15,8 @@ $(".btn").on("mousedown", function(){
     console.log(this);
     nextSequence();
     $(this).animate({opacity: 0.25},500, function(){$(this).delay(500).animate({opacity: 1}, 500);
-    console.log(this.id);
-    var userChosenColour = this.id; // does this work?
+    console.log(this.attr("id"));
+    var userChosenColour = this.attr("id"); // does this work?
     console.log(userChosenColour);
     });
 
