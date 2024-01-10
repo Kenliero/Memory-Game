@@ -2,7 +2,6 @@ var buttonColours = ["red", "blue", "green", "yellow"];
 var randomChosenColour = "";
 var gamePattern= [];
 var mySounds = new Audio();
-mySounds.src = "./sounds/green.mp3";
 var pressedButton = "";
 
 function nextSequence(){
@@ -19,8 +18,3 @@ $("button").on("mousedown", function(){
     mySounds.src = "./sounds/" + randomChosenColour + ".mp3";   // For now plays the correct color, not pressed color 
     mySounds.play();
 });
-
-
-//$("button").hasClass("randomChosenColour").animate({backgroundColor: "#000000"},1000);
-
-// .animate({backgroundColor: "#ff0000"}, 1000);
