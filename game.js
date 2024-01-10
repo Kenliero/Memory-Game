@@ -3,19 +3,6 @@ var randomChosenColour = "";
 var gamePattern= [];
 var mySounds = new Audio();
 
-/*
-$("button").on("mousedown", function(event){
-    console.log(event);
-    $("button").hasClass("randomChosenColour").animate({opacity: 0.25},1000);
-    // mySounds.play($(event.click));
-});
-*/
-
-$("button").on("mousedown", function(event){
-    console.log(event);
-    //$("button").hasClass("randomChosenColour").animate({opacity: 0.25},1000);
-});
-
 function nextSequence(){
     var randomNumber = Math.floor(Math.random() * 4);
     randomChosenColour = buttonColours[randomNumber];
@@ -23,7 +10,13 @@ function nextSequence(){
     console.log(randomChosenColour);
 }
 
-nextSequence();
+$("button").on("mousedown", function(event){
+    console.log(event);
+    nextSequence();
+    //$("button").hasClass("randomChosenColour").animate({opacity: 0.25},1000);
+});
+
+
 //$("button").hasClass("randomChosenColour").animate({backgroundColor: "#000000"},1000);
 
 // .animate({backgroundColor: "#ff0000"}, 1000);
