@@ -30,6 +30,8 @@ function checkAnswer(currentlevel){
     }
     if (success === true) {
        $("h1").text("SUCCESS!!!");
+    } else {
+        $("h1").text("You made a mistake...");       
     }
 }
 
