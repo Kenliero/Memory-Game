@@ -19,7 +19,7 @@ function animatePress(currentColour){
 
 function showPattern(){
     for (var i = 0; i < gamePattern.length;i++){
-        $("." + gamePattern[i]).delay(i * 100).animate({opacity: 0.25}, 200).delay(100).animate({opacity: 1}, 200);        
+        $("." + gamePattern[i]).delay(i * 200).animate({opacity: 0.25}, 200).delay(200).animate({opacity: 1}, 200);        
      }
 }
 
