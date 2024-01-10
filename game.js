@@ -14,28 +14,10 @@ function nextSequence(){
 $(".btn").on("mousedown", function(){
     console.log(this);
     nextSequence();
-    $(this).animate({opacity: 0.25},500, function(){$(this).delay(500).animate({opacity: 1}, 500);
-    console.log(this.attr("id"));
-    var userChosenColour = this.attr("id"); // does this work?
+    console.log($(this).attr("id"));
+    var userChosenColour = $(this).attr("id"); // does this work?
     console.log(userChosenColour);
-    });
-
-
-    console.log(this);
-    console.log(this.color);
-    console.log(this.hasClass("green"));
-
-    /*
-    for (i = 0; i <= buttonColours.length; i++) {
-        if (buttonColours[i] === this.color) 
-    }
-    */
+    mySounds.src = "./sounds/" + userChosenColour + ".mp3";
+    mySounds.play();
+    $(this).animate({opacity: 0.25},500, function(){$(this).delay(500).animate({opacity: 1}, 500);});
 });
-
-
-    //for (i = 0; i < buttonColours.length;i++) {
-    //mySounds.src = "./sounds/" + randomChosenColour + ".mp3";
-    //mySounds.play();
-    //}
-    //if ($(this).hasClass(randomChosenColour) === buttonColours[i]) {
-
