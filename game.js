@@ -67,7 +67,7 @@ function nextSequence(){
     showPattern();
 }
 
-$("body").on("keydown", function (){
+$("h1").on("keydown", function (){
     if (!gameStarted){
         resetGame();
             if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
@@ -76,7 +76,7 @@ $("body").on("keydown", function (){
         }
 });
 
-$("body").on("click", function(){
+$("h1").on("click", function(){
     if (!gameStarted){
         resetGame();
         gameStarted = true;
