@@ -4,7 +4,9 @@ var gamePattern= [];
 var mySounds = new Audio();
 
 $("button").on("mousedown", function(event){
+    nextSequence();
     console.log(event);
+    $("button").hasClass("randomChosenColour").animate({backgroundColor: "#000000"},1000);
     // mySounds.play($(event.click));
 })
 
@@ -14,7 +16,7 @@ function nextSequence(){
     gamePattern.push[randomChosenColour];
 }
 
-nextSequence();
-$("button").hasClass("randomChosenColour").animate({backgroundColor: "#000000"},1000);
+//nextSequence();
+//$("button").hasClass("randomChosenColour").animate({backgroundColor: "#000000"},1000);
 
 // .animate({backgroundColor: "#ff0000"}, 1000);
