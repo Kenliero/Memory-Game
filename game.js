@@ -8,7 +8,7 @@ $("button").on("mousedown", function(event){
     console.log(event);
     $("button").hasClass("randomChosenColour").animate({backgroundColor: "#000000"},1000);
     // mySounds.play($(event.click));
-})
+});
 
 function nextSequence(){
     var randomNumber = Math.floor(Math.random() * 4);
