@@ -33,13 +33,16 @@ function checkAnswer(currentlevel){
     } else {
         $("h1").addClass("smallText");
         $("h1").text("You made a mistake... Click to try Again");
-        gamePattern.length = 0;
-        userClickedPattern.length = 0;
-        level = 0;
-        gameStarted = false;       
+        resetGame();    
     }
 }
 
+function resetGame(){
+    gameStarted = false;
+    gamePattern.length = 0;
+    userClickedPattern.length = 0;
+    level = 0;
+}
 
 function nextSequence(){
     var randomNumber = Math.floor(Math.random() * 4);
@@ -55,17 +58,17 @@ function nextSequence(){
 
 $("body").on("keydown", function (){
     if (!gameStarted){
-            gameStarted = true;
-            level = 0;
+        resetGame();
             if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
+            gameStarted = true;
             nextSequence();
         }
 });
 
 $(".btn").on("click", function(){
     if (!gameStarted){
+        resetGame();
         gameStarted = true;
-        level = 0;
         if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
         nextSequence();
     } else {
