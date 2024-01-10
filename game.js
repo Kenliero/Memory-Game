@@ -17,14 +17,21 @@ function animatePress(currentColour){
 }
 
 function showPattern(){
-    for (i = 0; i < gamePattern.length;i++){
+    for (var i = 0; i < gamePattern.length;i++){
         $("." + gamePattern[i]).delay(i * 100).animate({opacity: 0.25},200, function(){$(this).delay(100).animate({opacity: 1}, 200);});
      }
 }
 
-function checkAnswer(level){
-
+function checkAnswer(currentlevel){
+    var success = true;
+    for (var i = 0; i < gamePattern.length) {
+        if (gamePattern[i] != userClickedPattern[i]) {success = false};
+    }
+    if (success === true) {
+       $("h1").text("SUCCESS!!!");
+    }
 }
+
 
 function nextSequence(){
     var randomNumber = Math.floor(Math.random() * 4);
@@ -52,12 +59,17 @@ $(".btn").on("click", function(){
         level = 0;
         nextSequence();
     } else {
-        var userChosenColour = $(this).attr("id"); // does this work?
-        playSound(userChosenColour);
-        animatePress(userChosenColour);
-        //$(this).animate({opacity: 0.25},200, function(){$(this).delay(500).animate({opacity: 1}, 200);});
-        userClickedPattern.push(userChosenColour);
-        console.log(userChosenColour);
-        //nextSequence();
+        if (userClickedPattern.length < gamePattern.length) {
+            var userChosenColour = $(this).attr("id");
+            playSound(userChosenColour);
+            animatePress(userChosenColour);
+            //$(this).animate({opacity: 0.25},200, function(){$(this).delay(500).animate({opacity: 1}, 200);});
+            userClickedPattern.push(userChosenColour);
+            console.log(userChosenColour);
+            //nextSequence();
+        } else {
+            checkAnswer(userClickedPattern.length -1);
+            userClickedPattern.length = 0; // clear user clicked            
+        }
     }
 });
