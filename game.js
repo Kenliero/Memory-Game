@@ -17,11 +17,17 @@ function animatePress(currentColour){
     setTimeout(function(){$("#" + currentColour).removeClass("pressed");},100);
 }
 
-function showPattern(){
-    for (var i = 0; i < gamePattern.length;i++){
-        $("." + gamePattern[i]).delay(i * 200).animate({opacity: 0.25}, 200).delay(200).animate({opacity: 1}, 200);
-        playSound(gamePattern[i]);        
-     }
+function showPattern() {
+    for (var i = 0; i < gamePattern.length; i++) {
+        // Use let to create a new scope for i in the setTimeout function
+        let index = i;
+        setTimeout(function() {
+            $("." + gamePattern[index]).animate({ opacity: 0.25 }, 200)
+                .delay(100)
+                .animate({ opacity: 1 }, 200);
+            playSound(gamePattern[index]);
+        }, i * 500); // Adjust the delay as needed
+    }
 }
 
 function checkAnswer(currentlevel){
