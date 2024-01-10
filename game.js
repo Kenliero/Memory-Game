@@ -16,16 +16,26 @@ function animatePress(currentColour){
     setTimeout(function(){$("#" + currentColour).removeClass("pressed"),100;})
 }
 
+function showPattern(){
+    for (i = 0; i < gamePattern.length;i++){
+        $("." + gamePattern[i]).delay(i * 100).animate({opacity: 0.25},200, function(){$(this).delay(100).animate({opacity: 1}, 200);});
+     }
+}
+
+function checkAnswer(level){
+
+}
+
 function nextSequence(){
     var randomNumber = Math.floor(Math.random() * 4);
     randomChosenColour = buttonColours[randomNumber];
-    //for (i)
-    $(this).animate({opacity: 0.25},100, function(){$(this).delay(100).animate({opacity: 1}, 100);});
     playSound(randomChosenColour);
     gamePattern.push(randomChosenColour);
     console.log(randomChosenColour);
     level++;
     $("h1").text("Level " + level);
+    // Show pattern
+    showPattern();
 }
 
 $("body").on("keydown", function (){
