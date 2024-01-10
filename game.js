@@ -11,8 +11,6 @@ function nextSequence(){
     console.log(randomChosenColour);
 }
 
-alert("testing");
-
 $("btn").on("mousedown", function(){
     console.log(this);
     nextSequence();
