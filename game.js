@@ -40,7 +40,6 @@ function checkAnswer(currentlevel){
         $("h1").addClass("smallText");
         $("h1").text("You made a mistake... Click ME to try Again");
     }
-    console.log(success);
 }
 
 function resetGame(){
