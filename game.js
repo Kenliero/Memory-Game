@@ -15,6 +15,16 @@ $(".btn").on("mousedown", function(){
     console.log(this);
     nextSequence();
     $(this).animate({opacity: 0.25},1000);
+
+    console.log(this);
+    console.log(this.color);
+    console.log(this.hasClass("green"));
+
+    /*
+    for (i = 0; i <= buttonColours.length; i++) {
+        if (buttonColours[i] === this.color) 
+    }
+    */
 });
 
 
