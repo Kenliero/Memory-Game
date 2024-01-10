@@ -5,7 +5,7 @@ var mySounds = new Audio();
 
 $("button").on("mousedown", function(event){
     console.log(event);
-    $("button").hasClass("randomChosenColour").animate({backgroundColor: "#000000"},1000);
+    $("button").hasClass("randomChosenColour").animate({opacity: 0.25},1000);
     // mySounds.play($(event.click));
 });
 
