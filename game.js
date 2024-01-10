@@ -12,8 +12,8 @@ function nextSequence(){
     console.log(randomChosenColour);
 }
 
-$("button").on("mousedown", function(event){
-    console.log(event);
+$("button").on("mousedown", function(){
+    console.log(this);
     nextSequence();
     $(this).animate({opacity: 0.25},1000);
     mySounds.src = "./sounds/" + randomChosenColour + ".mp3";   // For now plays the correct color, not pressed color 
