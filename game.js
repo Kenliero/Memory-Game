@@ -4,6 +4,7 @@ var gamePattern= [];
 var userClickedPattern = [];
 var level = 0;
 var gameStarted = false;
+var goNext = false;
 
 function playSound(name){
     var mySounds = new Audio();
