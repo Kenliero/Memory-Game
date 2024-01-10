@@ -31,7 +31,11 @@ function checkAnswer(currentlevel){
     if (success === true) {
        $("h1").text("SUCCESS!!!");
     } else {
-        $("h1").text("You made a mistake...");       
+        $("h1").addClass("smallText");
+        $("h1").text("You made a mistake... Click to try Again");
+        gamePattern.length = 0;
+        level = 0;
+        gameStarted = false;       
     }
 }
 
@@ -52,6 +56,7 @@ $("body").on("keydown", function (){
     if (!gameStarted){
             gameStarted = true;
             level = 0;
+            if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
             nextSequence();
         }
 });
@@ -60,6 +65,7 @@ $(".btn").on("click", function(){
     if (!gameStarted){
         gameStarted = true;
         level = 0;
+        if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
         nextSequence();
     } else {
         if (userClickedPattern.length < gamePattern.length) {
