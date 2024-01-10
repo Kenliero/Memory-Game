@@ -25,7 +25,7 @@ function showPattern(){
 
 function checkAnswer(currentlevel){
     var success = true;
-    for (var i = 0; i < gamePattern.length) {
+    for (var i = 0; i < gamePattern.length;i++) {
         if (gamePattern[i] != userClickedPattern[i]) {success = false};
     }
     if (success === true) {
