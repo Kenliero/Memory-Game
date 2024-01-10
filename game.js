@@ -22,6 +22,7 @@ function nextSequence(){
     playSound(randomChosenColour);
     gamePattern.push(randomChosenColour);
     console.log(randomChosenColour);
+    level++;
 }
 
 $("body").on("keydown", function (){
