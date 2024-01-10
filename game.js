@@ -31,7 +31,7 @@ function showPattern() {
 }
 
 function checkAnswer(currentlevel){
-    success = true;
+
     for (var i = 0; i < gamePattern.length;i++) {
         if (gamePattern[i] !== userClickedPattern[i]) {success = false};
         console.log(success);
@@ -41,11 +41,11 @@ function checkAnswer(currentlevel){
     } else {
         $("h1").addClass("smallText");
         $("h1").text("You made a mistake... Click to try Again");
-        success = false;  
     }
 }
 
 function resetGame(){
+    success = true;
     gameStarted = false;
     gamePattern.length = 0;
     userClickedPattern.length = 0;
@@ -99,8 +99,8 @@ $(".btn").on("click", function(){
           if (success === true ) {
             nextSequence()
           } else {
-            resetGame();
             gameStarted = false;
+            resetGame();
           }
         }   
     }     
