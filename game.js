@@ -62,7 +62,6 @@ function nextSequence(){
     randomChosenColour = buttonColours[randomNumber];
     playSound(randomChosenColour);
     gamePattern.push(randomChosenColour);
-    console.log(randomChosenColour);
     level++;
     $("h1").text("Level " + level);
     // Show pattern
@@ -93,9 +92,7 @@ $(".btn").on("click", function(){
             var userChosenColour = $(this).attr("id");
             playSound(userChosenColour);
             animatePress(userChosenColour);
-            console.log("player: " + userClickedPattern.length + " & Game: " + gamePattern.length);
             userClickedPattern.push(userChosenColour);
-            console.log(userChosenColour);
             }      
         if (userClickedPattern.length === gamePattern.length) {
           checkAnswer(userClickedPattern.length -1);
