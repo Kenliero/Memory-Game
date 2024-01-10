@@ -2,7 +2,7 @@ var buttonColours = ["red", "blue", "green", "yellow"];
 var randomChosenColour = "";
 var gamePattern= [];
 var mySounds = new Audio();
-var pressedButton = "";
+var userClickedPattern = [];
 
 function nextSequence(){
     var randomNumber = Math.floor(Math.random() * 4);
@@ -20,4 +20,6 @@ $(".btn").on("mousedown", function(){
     mySounds.src = "./sounds/" + userChosenColour + ".mp3";
     mySounds.play();
     $(this).animate({opacity: 0.25},500, function(){$(this).delay(500).animate({opacity: 1}, 500);});
+    userClickedPattern.push(userChosenColour);
+    console.log(userChosenColour);
 });
