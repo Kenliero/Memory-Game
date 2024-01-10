@@ -14,7 +14,9 @@ function nextSequence(){
 $(".btn").on("mousedown", function(){
     console.log(this);
     nextSequence();
-    $(this).animate({opacity: 0.25},1000);
+    $(this).animate({opacity: 0.25},500, function(){$(this).delay(500).animate({opacity: 1}, 500);
+    });
+
 
     console.log(this);
     console.log(this.color);
