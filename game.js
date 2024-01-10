@@ -37,6 +37,7 @@ function checkAnswer(currentlevel){
     }
     if (success === true) {
        $("h1").text("SUCCESS!!!");
+       resetRound();
     } else {
         $("h1").addClass("smallText");
         $("h1").text("You made a mistake... Click to try Again");
@@ -49,6 +50,11 @@ function resetGame(){
     gamePattern.length = 0;
     userClickedPattern.length = 0;
     level = 0;
+    randomChosenColour = "";
+}
+
+function resetRound(){
+  userClickedPattern.length = 0;
 }
 
 function nextSequence(){
@@ -90,10 +96,10 @@ $(".btn").on("click", function(){
             console.log("player: " + userClickedPattern.length + " & Game: " + gamePattern.length);
             userClickedPattern.push(userChosenColour);
             console.log(userChosenColour);
-            //nextSequence();
-            } else {
-            checkAnswer(userClickedPattern.length -1);
-            nextSequence();          
+            }      
         }
-    }
+        if (userClickedPattern.length === gamePattern.length) {
+        checkAnswer(userClickedPattern.length -1);
+        nextSequence();
+        }    
 });
