@@ -34,12 +34,18 @@ $("body").on("keydown", function (){
         }
 });
 
-$(".btn").on("mousedown", function(){
-    var userChosenColour = $(this).attr("id"); // does this work?
-    playSound(userChosenColour);
-    animatePress(userChosenColour);
-    //$(this).animate({opacity: 0.25},200, function(){$(this).delay(500).animate({opacity: 1}, 200);});
-    userClickedPattern.push(userChosenColour);
-    console.log(userChosenColour);
-    //nextSequence();
+$(".btn").on("click", function(){
+    if (!gameStarted){
+        gameStarted = true;
+        level = 0;
+        nextSequence();
+    } else {
+        var userChosenColour = $(this).attr("id"); // does this work?
+        playSound(userChosenColour);
+        animatePress(userChosenColour);
+        //$(this).animate({opacity: 0.25},200, function(){$(this).delay(500).animate({opacity: 1}, 200);});
+        userClickedPattern.push(userChosenColour);
+        console.log(userChosenColour);
+        //nextSequence();
+    }
 });
