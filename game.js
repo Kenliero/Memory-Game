@@ -31,7 +31,6 @@ function showPattern() {
 }
 
 function checkAnswer(currentlevel){
-
     for (var i = 0; i < gamePattern.length;i++) {
         if (gamePattern[i] !== userClickedPattern[i]) {success = false};
         console.log(success);
