@@ -29,6 +29,7 @@ $("body").on("keydown", function (){
     if (!gameStarted){
             gameStarted = true;
             level = 0;
+            nextSequence();
         }
         $("h1").text("Level " + level);
 });
@@ -43,4 +44,3 @@ $(".btn").on("mousedown", function(){
     console.log(userChosenColour);
 });
 
-nextSequence();
