@@ -18,15 +18,12 @@ function nextSequence(){
 }
 
 $(".btn").on("mousedown", function(){
-    console.log(this);
-    console.log($(this).attr("id"));
     var userChosenColour = $(this).attr("id"); // does this work?
     console.log(userChosenColour);
     playSound(userChosenColour);
-    $(this).animate({opacity: 0.25},500, function(){$(this).delay(500).animate({opacity: 1}, 500);});
+    $(this).animate({opacity: 0.25},200, function(){$(this).delay(500).animate({opacity: 1}, 200);});
     userClickedPattern.push(userChosenColour);
     console.log(userChosenColour);
-    nextSequence();
 });
 
 nextSequence();
