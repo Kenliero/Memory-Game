@@ -4,9 +4,15 @@ var gamePattern= [];
 var mySounds = new Audio();
 var userClickedPattern = [];
 
+function playSound(name){
+    mySounds.src = "./sounds/" + name + ".mp3";
+    mySounds.play();
+}
+
 function nextSequence(){
     var randomNumber = Math.floor(Math.random() * 4);
     randomChosenColour = buttonColours[randomNumber];
+    playSound(randomChosenColour);
     gamePattern.push(randomChosenColour);
     console.log(randomChosenColour);
 }
@@ -22,8 +28,3 @@ $(".btn").on("mousedown", function(){
     userClickedPattern.push(userChosenColour);
     console.log(userChosenColour);
 });
-
-function playSound(name){
-    mySounds.src = "./sounds/" + name + ".mp3";
-    mySounds.play();
-}
