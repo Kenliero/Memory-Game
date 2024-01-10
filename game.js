@@ -26,11 +26,11 @@ function nextSequence(){
 
 $("body").on("keydown", function (){
     if (!gameStarted){
-        gameStarted = true;
-        level = 0;
+            gameStarted = true;
+            level = 0;
+        }
         $("h1").text("Level " + level);
-    }
-}
+});
 
 $(".btn").on("mousedown", function(){
     var userChosenColour = $(this).attr("id"); // does this work?
