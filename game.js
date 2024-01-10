@@ -34,6 +34,7 @@ function checkAnswer(currentlevel){
         $("h1").addClass("smallText");
         $("h1").text("You made a mistake... Click to try Again");
         gamePattern.length = 0;
+        userClickedPattern.length = 0;
         level = 0;
         gameStarted = false;       
     }
@@ -78,7 +79,6 @@ $(".btn").on("click", function(){
             //nextSequence();
         } else {
             checkAnswer(userClickedPattern.length -1);
-            userClickedPattern.length = 0; // clear user clicked 
             nextSequence();          
         }
     }
