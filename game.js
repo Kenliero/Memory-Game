@@ -1,17 +1,17 @@
 var buttonColours = ["red", "blue", "green", "yellow"];
 var randomChosenColour = "";
 var gamePattern= [];
-var mySounds = new Audio();
 var userClickedPattern = [];
 
 function playSound(name){
+    var mySounds = new Audio();
     mySounds.src = "./sounds/" + name + ".mp3";
     mySounds.play();
 }
 
 function animatePress(currentColour){
     $("#" + currentColour).addClass("pressed");
-    setTimeout(function(){$("#" + currentColour).removeClass("pressed");})
+    setTimeout(function(){$("#" + currentColour).removeClass("pressed"),100;})
 }
 
 function nextSequence(){
