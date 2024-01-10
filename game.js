@@ -33,7 +33,6 @@ function showPattern() {
 function checkAnswer(currentlevel){
     for (var i = 0; i < gamePattern.length;i++) {
         if (gamePattern[i] !== userClickedPattern[i]) {success = false};
-        console.log(success);
     }
     if (success === true) {
         resetRound();
@@ -41,6 +40,7 @@ function checkAnswer(currentlevel){
         $("h1").addClass("smallText");
         $("h1").text("You made a mistake... Click to try Again");
     }
+    console.log(success);
 }
 
 function resetGame(){
