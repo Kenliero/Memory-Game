@@ -9,6 +9,11 @@ function playSound(name){
     mySounds.play();
 }
 
+function animatePress(currentColour){
+    $("#" + currentColour).addClass("pressed");
+    setTimeout(function(){$("#" + currentColour).removeClass("pressed");})
+}
+
 function nextSequence(){
     var randomNumber = Math.floor(Math.random() * 4);
     randomChosenColour = buttonColours[randomNumber];
@@ -21,7 +26,8 @@ $(".btn").on("mousedown", function(){
     var userChosenColour = $(this).attr("id"); // does this work?
     console.log(userChosenColour);
     playSound(userChosenColour);
-    $(this).animate({opacity: 0.25},200, function(){$(this).delay(500).animate({opacity: 1}, 200);});
+    animatePress(userChosenColour);
+    //$(this).animate({opacity: 0.25},200, function(){$(this).delay(500).animate({opacity: 1}, 200);});
     userClickedPattern.push(userChosenColour);
     console.log(userChosenColour);
 });
