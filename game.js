@@ -79,7 +79,7 @@ $(".btn").on("click", function(){
         } else {
             checkAnswer(userClickedPattern.length -1);
             userClickedPattern.length = 0; // clear user clicked 
-            showPattern();           
+            nextSequence();          
         }
     }
 });
