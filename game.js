@@ -38,7 +38,7 @@ function checkAnswer(currentlevel){
         resetRound();
     } else {
         $("h1").addClass("smallText");
-        $("h1").text("You made a mistake... Click to try Again");
+        $("h1").text("You made a mistake... Click ME to try Again");
     }
     console.log(success);
 }
