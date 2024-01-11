@@ -67,9 +67,9 @@ function nextSequence(){
     gamePattern.push(randomChosenColour);
     level++;
     if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
-    $("h1").html("<h1 id='level-title'>Simon Shows Level ' + level + </h1>");
+    $("h1").html("<h1 id='level-title'>Simon Shows Level " + level + "</h1>");
     // Show pattern
-    setTimeout(function() {showPattern();}, 1200); // delay by 1 second, before showing the pattern
+    setTimeout(function() {showPattern();}, 1500); // delay by 1 second, before showing the pattern
 }
 
 $(".startButton").on("click", function(){
