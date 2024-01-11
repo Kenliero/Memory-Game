@@ -59,7 +59,7 @@ function resetRound(){
 function nextSequence(){
     var randomNumber = Math.floor(Math.random() * 4);
     randomChosenColour = buttonColours[randomNumber];
-    playSound(randomChosenColour);
+    //playSound(randomChosenColour);
     gamePattern.push(randomChosenColour);
     level++;
     $("h1").text("Level " + level);
