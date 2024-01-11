@@ -38,7 +38,7 @@ function checkAnswer(currentlevel){
         resetRound();
     } else {
         $("h1").addClass("smallText");
-        $("h1").text("You made a mistake... Click ME to try Again");
+        $("h1").html("<h1 id='level-title'>You made a mistake... Click <button class='startButton'>Start</button> to try Again</h1>");
         playSound("wrong");
     }
 }
@@ -62,27 +62,19 @@ function nextSequence(){
     //playSound(randomChosenColour);
     gamePattern.push(randomChosenColour);
     level++;
-    $("h1").text("Level " + level);
+    if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
+    $("h1").html("<h1 id='level-title'>Level ' + level + </h1>");
     // Show pattern
     setTimeout(function() {showPattern();}, 1000); // delay by 1 second, before showing the pattern
 }
 
-$("h1").on("keydown", function (){
+$(".startButton").on("click", function(){
     if (!gameStarted){
         resetGame();
             if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
             gameStarted = true;
             nextSequence();
-        }
-});
-
-$("h1").on("click", function(){
-    if (!gameStarted){
-        resetGame();
-        gameStarted = true;
-        if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
-        nextSequence();
-    }
+        }    
 });
 
 $(".btn").on("click", function(){
