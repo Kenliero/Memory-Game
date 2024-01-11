@@ -73,12 +73,10 @@ function nextSequence(){
 }
 
 $(".startButton").on("click", function(){
-    if (!gameStarted){
         resetGame();
-            if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
-            gameStarted = true;
-            nextSequence();
-        }    
+        if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
+        gameStarted = true;
+        nextSequence(); 
 });
 
 $(".btn").on("click", function(){
