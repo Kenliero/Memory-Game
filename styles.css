@@ -15,8 +15,10 @@ body {
 }
 
 .startButton{
-  font-size: 2rem; /* Adjust the value as needed */
+  font-size: 3rem; /* Adjust the value as needed */
   align-items: center;
+  border-color: white;
+  border-width: 2px;  
 }
 
 .centerText {
