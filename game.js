@@ -72,11 +72,11 @@ function nextSequence(){
     setTimeout(function() {showPattern();}, 1500); // delay by 1 second, before showing the pattern
 }
 
-$(".startButton").on("click", function(){
-        resetGame();
-        if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
-        gameStarted = true;
-        nextSequence(); 
+$(document).on("click", ".startButton", function(){
+    resetGame();
+    if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
+    gameStarted = true;
+    nextSequence(); 
 });
 
 $(".btn").on("click", function(){
