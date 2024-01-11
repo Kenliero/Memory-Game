@@ -5,6 +5,7 @@ var userClickedPattern = [];
 var level = 0;
 var gameStarted = false;
 var success = true;
+var buttonAccess = false;
 
 function playSound(name){
     var mySounds = new Audio();
@@ -28,7 +29,10 @@ function showPattern() {
             // Check if this is the last iteration
             if (index === gamePattern.length - 1) {
                 // This is the last iteration, update the h1 element
-                setTimeout(function() {$("h1").html("<h1 id='level-title'>Now your turn to repeat...</h1>");}, 1000); // Adjust the delay as needed
+                setTimeout(function() {
+                    $("h1").html("<h1 id='level-title'>Now your turn to repeat...</h1>");
+                    buttonAccess = true;                
+                }, 500); // Adjust the delay as needed
             }
         }, i * 500); // Adjust the delay as needed
     }
@@ -61,6 +65,7 @@ function resetRound(){
 }
 
 function nextSequence(){
+    buttonAccess = false;  
     var randomNumber = Math.floor(Math.random() * 4);
     randomChosenColour = buttonColours[randomNumber];
     //playSound(randomChosenColour);
@@ -69,32 +74,34 @@ function nextSequence(){
     if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
     $("h1").html("<h1 id='level-title'>Simon Shows Level " + level + "</h1>");
     // Show pattern
-    setTimeout(function() {showPattern();}, 1500); // delay by 1 second, before showing the pattern
+    setTimeout(function() {showPattern();}, 1000); // delay by 1 second, before showing the pattern
 }
 
 $(document).on("click", ".startButton", function(){
     resetGame();
     if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
     gameStarted = true;
-    nextSequence(); 
+    nextSequence();
 });
 
 $(".btn").on("click", function(){
-    if (gameStarted){
-        if (userClickedPattern.length < gamePattern.length) {
-            var userChosenColour = $(this).attr("id");
-            playSound(userChosenColour);
-            animatePress(userChosenColour);
-            userClickedPattern.push(userChosenColour);
-            }      
-        if (userClickedPattern.length === gamePattern.length) {
-          checkAnswer(userClickedPattern.length -1);
-          if (success === true ) {
-            nextSequence()
-          } else {
-            gameStarted = false;
-            resetGame();
-          }
-        }   
+    if (buttonAccess) {
+        if (gameStarted){
+            if (userClickedPattern.length < gamePattern.length) {
+                var userChosenColour = $(this).attr("id");
+                playSound(userChosenColour);
+                animatePress(userChosenColour);
+                userClickedPattern.push(userChosenColour);
+                }      
+            if (userClickedPattern.length === gamePattern.length) {
+            checkAnswer(userClickedPattern.length -1);
+            if (success === true ) {
+                nextSequence()
+            } else {
+                gameStarted = false;
+                resetGame();
+            }
+            }   
+        }
     }     
 });
