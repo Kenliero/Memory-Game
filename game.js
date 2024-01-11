@@ -28,7 +28,7 @@ function showPattern() {
             // Check if this is the last iteration
             if (index === gamePattern.length - 1) {
                 // This is the last iteration, update the h1 element
-                setTimeout(function() {$("h1").html("<h1 id='level-title'>Now it is your turn to repeat...</h1>");}, 1000); // Adjust the delay as needed
+                setTimeout(function() {$("h1").html("<h1 id='level-title'>Now your turn to repeat...</h1>");}, 1000); // Adjust the delay as needed
             }
         }, i * 500); // Adjust the delay as needed
     }
