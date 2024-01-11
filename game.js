@@ -39,6 +39,7 @@ function checkAnswer(currentlevel){
     } else {
         $("h1").addClass("smallText");
         $("h1").text("You made a mistake... Click ME to try Again");
+        playSound("wrong");
     }
 }
 
@@ -63,7 +64,7 @@ function nextSequence(){
     level++;
     $("h1").text("Level " + level);
     // Show pattern
-    showPattern();
+    setTimeout(function() {showPattern();}, 1000); // delay by 1 second, before showing the pattern
 }
 
 $("h1").on("keydown", function (){
