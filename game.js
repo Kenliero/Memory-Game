@@ -22,10 +22,14 @@ function showPattern() {
         // Use let to create a new scope for i in the setTimeout function
         let index = i;
         setTimeout(function() {
-            $("." + gamePattern[index]).animate({ opacity: 0.25 }, 200)
-                .delay(100)
-                .animate({ opacity: 1 }, 200);
+            $("." + gamePattern[index]).animate({ opacity: 0.25 }, 200).delay(100).animate({ opacity: 1 }, 200);
             playSound(gamePattern[index]);
+
+            // Check if this is the last iteration
+            if (index === gamePattern.length - 1) {
+                // This is the last iteration, update the h1 element
+                setTimeout(function() {$("h1").html("<h1 id='level-title'>Now it is your turn to repeat...</h1>");}, 500); // Adjust the delay as needed
+            }
         }, i * 500); // Adjust the delay as needed
     }
 }
@@ -63,9 +67,9 @@ function nextSequence(){
     gamePattern.push(randomChosenColour);
     level++;
     if ($("h1").hasClass("smallText")){$("h1").removeClass("smallText");}
-    $("h1").html("<h1 id='level-title'>Level ' + level + </h1>");
+    $("h1").html("<h1 id='level-title'>Simon Shows Level ' + level + </h1>");
     // Show pattern
-    setTimeout(function() {showPattern();}, 1000); // delay by 1 second, before showing the pattern
+    setTimeout(function() {showPattern();}, 1200); // delay by 1 second, before showing the pattern
 }
 
 $(".startButton").on("click", function(){
