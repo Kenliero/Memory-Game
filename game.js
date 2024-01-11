@@ -32,7 +32,7 @@ function showPattern() {
                 setTimeout(function() {
                     $("h1").html("<h1 id='level-title'>Now your turn to repeat...</h1>");
                     buttonAccess = true;                
-                }, 500); // Adjust the delay as needed
+                }, 600); // Adjust the delay as needed
             }
         }, i * 500); // Adjust the delay as needed
     }
