@@ -16,7 +16,6 @@ body {
 
 .startButton{
   font-size: 2rem; /* Adjust the value as needed */
-  display: flex;
   align-items: center;
 }
 
